@@ -40,7 +40,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x ${{matrix.target}}.sh
-        git clone -b ${{matrix.target}} https://github.com/281677160/openwrt-package.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/linkgs/openwrt-package-sz.git ${{matrix.target}}
         cd ${{matrix.target}}
         rm -Rf *
         git rm --cache *
@@ -55,7 +55,7 @@ jobs:
         cd $GITHUB_WORKSPACE/${{matrix.target}}
         git add .
         git commit -m "同步源码于$(TZ='Asia/Shanghai' date +%Y年%m月%d号-%H点%M分)"
-        git push --quiet "https://${{ secrets.UPDATE }}@github.com/281677160/openwrt-package.git" HEAD:${{matrix.target}} || exit 0
+        git push --quiet "https://${{ secrets.UPDATE }}@github.com/linkgs/openwrt-package-sz.git" HEAD:${{matrix.target}} || exit 0
   OpenWrt-Snapshot:
     runs-on: Ubuntu-20.04
 
@@ -82,7 +82,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x ${{matrix.target}}.sh
-        git clone -b ${{matrix.target}} https://github.com/281677160/N1.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/linkgs/N1-szg.git ${{matrix.target}}
         cd ${{matrix.target}}
         rm -Rf *
         git rm --cache *
@@ -97,4 +97,4 @@ jobs:
         cd $GITHUB_WORKSPACE/${{matrix.target}}
         git add .
         git commit -m "同步源码于$(TZ='Asia/Shanghai' date +%Y年%m月%d号-%H点%M分)"
-        git push --quiet "https://${{ secrets.UPDATE }}@github.com/281677160/N1.git" HEAD:${{matrix.target}}      
+        git push --quiet "https://${{ secrets.UPDATE }}@github.com/linkgs/N1-szg.git" HEAD:${{matrix.target}}      
